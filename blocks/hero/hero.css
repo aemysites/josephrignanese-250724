@@ -1,3 +1,4 @@
+/* --- HERO CONTAINER RULES --- */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -44,4 +45,195 @@
   .hero {
     padding: 40px 32px;
   }
+}
+
+/* HERO ROOT: full-bleed, background image, vertical centering */
+.hero.hero6 {
+  width: 100vw;
+  min-height: 480px;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: url('./media_1753fba6d89ace7e30bcb5e945eb269e1f6612646.png?width=2000&format=webply&optimize=medium') center center / cover no-repeat;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+/* Remove any absolute/floating placement on the inset image */
+.hero.hero6 > div:nth-child(2) > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: rgb(0 0 0 / 18%);
+  border: 1.5px solid #222;
+  border-radius: 18px;
+  box-sizing: border-box;
+  padding: 36px 48px 36px 36px;
+  max-width: 710px;
+  margin-left: 48px;
+  gap: 32px;
+  z-index: 2;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 7%);
+}
+
+/* RESPONSIVE: stack overlay content */
+@media (width <= 900px) {
+  .hero.hero6 {
+    min-height: 370px;
+    height: auto;
+    border-radius: 18px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .hero.hero6 > div:nth-child(2) > div {
+    flex-direction: column;
+    align-items: center;
+    max-width: 98vw;
+    width: 100%;
+    margin-left: 0;
+    padding: 18px 8px;
+    gap: 16px;
+  }
+}
+
+/* RIGHT COLUMN & STACKED CONTENT: headline, list, button stacked */
+.hero.hero6 > div:nth-child(2) > div > div,
+.hero.hero6 > div:nth-child(2) > div > :not(:first-child) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 1 1 0;
+  min-width: 0;
+  gap: 0;
+  width: 100%;
+}
+
+/* ICON LISTS: stack vertically + Remove unwanted p margins */
+.hero.hero6 > div:nth-child(2) > div > div > p,
+.hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p {
+  display: flex;
+  align-items: center;
+  font-size: 1.04rem;
+  color: rgb(34 34 34 / 98%);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin: 0 0 8px;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* LEFT IMAGE: inside overlay, left aligned, sized */
+.hero.hero6 > div:nth-child(2) > div > p:first-child {
+  margin: 0;
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  /* To keep a small gap between image and right column on mobile */
+}
+
+.hero.hero6 > div:nth-child(2) > div > div > p > picture,
+.hero.hero6 > div:nth-child(2) > div > div > p > img,
+.hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p > picture,
+.hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p > img {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
+  margin-right: 9px;
+  object-fit: contain;
+  border-radius: 3.5px;
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow: none;
+}
+
+.hero.hero6 > div:nth-child(2) > div > p:first-child picture,
+.hero.hero6 > div:nth-child(2) > div > p:first-child img {
+  border-radius: 16px;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 11%);
+  display: block;
+}
+
+/* HEADLINE */
+.hero.hero6 > div:nth-child(2) > div > div > h2,
+.hero.hero6 > div:nth-child(2) > div > :not(:first-child) > h2 {
+  font-family: var(--heading-font-family);
+  font-weight: 800;
+  font-size: 2.4rem;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  color: rgb(0 0 0 / 82%);
+  margin: 0 0 20px;
+  line-height: 1.08;
+  text-shadow: 0 2px 8px rgb(255 255 255 / 9%);
+  text-align: left;
+}
+
+@media (width <= 900px) {
+  .hero.hero6 > div:nth-child(2) > div > div,
+  .hero.hero6 > div:nth-child(2) > div > :not(:first-child) {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  .hero.hero6 > div:nth-child(2) > div > div > h2,
+  .hero.hero6 > div:nth-child(2) > div > :not(:first-child) > h2 {
+    font-size: 1.55rem;
+    text-align: center;
+  }
+  .hero.hero6 > div:nth-child(2) > div > div > p.button-container,
+  .hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p.button-container {
+    justify-content: center;
+  }
+}
+
+/* BUTTON: in stack, full width on mobile, left-aligned on desktop */
+.hero.hero6 > div:nth-child(2) > div > div > p.button-container,
+.hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p.button-container {
+  margin-top: 24px;
+  margin-bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.hero.hero6 .button-container .button,
+.hero-container > .hero-wrapper > .block.hero.hero6 .button {
+  background: #fff;
+  color: #111;
+  border: 1.5px solid #111;
+  border-radius: 24px;
+  padding: 12px 36px;
+  font-size: 1.09rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 7%);
+  transition: background 0.15s, color 0.15s;
+  display: inline-block;
+  margin: 0;
+  text-align: center;
+}
+
+.hero.hero6 .button-container .button:hover,
+.hero-container > .hero-wrapper > .block.hero.hero6 .button:hover {
+  background: #f5f5f5;
+  color: #111;
+}
+
+/* Make sure hero images fill their cells */
+.hero.hero6 picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
 }
