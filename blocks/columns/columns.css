@@ -25,9 +25,127 @@
     flex-direction: unset;
     gap: 24px;
   }
-
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+.columns.columns1 {
+  background: #f8f8f4;
+  padding: 64px 0;
+}
+
+.columns.columns1 > div {
+  display: grid;
+  grid-template-columns: minmax(400px, 480px) 1fr;
+  align-items: center;
+  gap: 36px;
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.columns.columns1 .columns-img-col {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.columns.columns1 .columns-img-col img {
+  border-radius: 24px;
+  width: 100%;
+  max-width: 440px;
+  min-width: 220px;
+  height: auto;
+  display: block;
+}
+
+.columns.columns1 .columns-img-col + div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.columns.columns1 .columns-img-col + div h1 {
+  font-family: var(--heading-font-family);
+  font-size: 54px;
+  line-height: 1.06;
+  color: #191919;
+  font-weight: 600;
+  margin: 0 0 6px;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  text-align: left;
+}
+
+.columns.columns1 .columns-img-col + div p:not(.button-container) {
+  color: #545454;
+  font-size: 18px;
+  margin: 0 0 8px;
+  line-height: 1.45;
+  text-align: left;
+  max-width: 360px;
+}
+
+.columns.columns1 .button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns1 .button-container .button {
+  border: 2px solid #191919;
+  background: #fff;
+  color: #191919;
+  border-radius: 32px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 32px;
+  box-shadow: none;
+  margin: 0;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.columns.columns1 .button-container .button:hover,
+.columns.columns1 .button-container .button:focus {
+  background: #191919;
+  color: #fff;
+  border-color: #191919;
+  outline: none;
+}
+
+@media (width <= 1000px) {
+  .columns.columns1 > div {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 0 12px;
+    max-width: 100%;
+  }
+}
+
+@media (width <= 700px) {
+  .columns.columns1 {
+    padding: 32px 0;
+  }
+  .columns.columns1 .columns-img-col img {
+    max-width: 100%;
+    min-width: 0;
+  }
+  .columns.columns1 .columns-img-col + div h1 {
+    font-size: 32px;
+  }
+  .columns.columns1 .columns-img-col + div {
+    max-width: 100%;
+    gap: 8px;
+  }
+  .columns.columns1 > div {
+    padding: 0 6px;
   }
 }
