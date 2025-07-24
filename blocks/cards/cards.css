@@ -25,3 +25,198 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+.cards.cards32 {
+  padding: 32px 0;
+  background: #fafafa;
+}
+
+/* --- GRID: Slightly reduced gap for a more compact look --- */
+.cards.cards32 > ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px 26px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (width <= 900px) {
+  .cards.cards32 > ul {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+/* --- CARD: Flex row, stretch sides, remove excess min-height --- */
+.cards.cards32 > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1.5px 8px rgb(40 40 40 / 7%);
+  overflow: hidden;
+  border: none;
+  min-height: unset;
+  height: 100%;
+}
+
+.cards.cards32 > ul > li:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+@media (width <= 900px) {
+  .cards.cards32 > ul > li,
+  .cards.cards32 > ul > li:nth-child(even) {
+    flex-direction: column;
+    min-height: unset;
+    height: unset;
+  }
+}
+
+/* --- IMAGE: Take up ~40% of card, fill height of parent --- */
+.cards.cards32 .cards-card-image {
+  flex: 0 0 40%;
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+}
+
+.cards.cards32 > ul > li .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px 0 0 12px;
+}
+
+.cards.cards32 > ul > li:nth-child(even) .cards-card-image img {
+  border-radius: 0 12px 12px 0;
+}
+
+@media (width <= 900px) {
+  .cards.cards32 .cards-card-image {
+    flex: none;
+    width: 100%;
+    height: unset;
+  }
+
+  .cards.cards32 > ul > li .cards-card-image img,
+  .cards.cards32 > ul > li:nth-child(even) .cards-card-image img {
+    border-radius: 12px 12px 0 0;
+    width: 100%;
+    height: 180px;
+    min-height: 100px;
+  }
+}
+
+/* --- CARD BODY: Top aligned, compact padding, fills height --- */
+.cards.cards32 .cards-card-body {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  padding: 14px 18px 12px;
+  height: 100%;
+}
+
+@media (width <= 900px) {
+  .cards.cards32 .cards-card-body {
+    padding: 12px 10px 10px;
+    height: unset;
+  }
+}
+
+/* --- LABELS: Very compact pill, lighter, less bold, more centered --- */
+.cards.cards32 .cards-card-body p:first-child {
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0.83rem;
+  line-height: 1.13;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: #f6f6f6;
+  color: #232323;
+  margin-right: 7px;
+  margin-bottom: 0.1em;
+}
+
+.cards.cards32 .cards-card-body p:nth-child(2) {
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0.83rem;
+  line-height: 1.13;
+  color: #979797;
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+
+.cards.cards32 .cards-card-body p:nth-child(4) {
+  font-size: 1.01rem;
+  color: #444;
+  margin: 0 0 5px;
+  line-height: 1.4;
+}
+
+.cards.cards32 .cards-card-body p:last-child {
+  color: #646464;
+  font-weight: 400;
+  margin-top: 8px;
+  font-size: 0.97rem;
+  font-family: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+  width: fit-content;
+  letter-spacing: 0.01em;
+  padding: 0;
+  align-self: flex-start;
+}
+
+.cards.cards32 .cards-card-body p:last-child:hover {
+  text-decoration: underline;
+  color: #222;
+}
+
+/* --- Custom Category Colors: very soft pastel --- */
+.cards.cards32 > ul > li:nth-child(1) .cards-card-body p:first-child {
+  background: #f2f2f2;
+  color: #222;
+}
+
+.cards.cards32 > ul > li:nth-child(2) .cards-card-body p:first-child {
+  background: #fff7c5;
+  color: #222;
+}
+
+.cards.cards32 > ul > li:nth-child(3) .cards-card-body p:first-child {
+  background: #efe7f7;
+  color: #222;
+}
+
+.cards.cards32 > ul > li:nth-child(4) .cards-card-body p:first-child {
+  background: #e7faf6;
+  color: #222;
+}
+
+/* --- TITLE: Slightly larger, tighter margin to label row --- */
+.cards.cards32 .cards-card-body h3 {
+  font-size: 1.41rem;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  margin: 3px 0 8px;
+  letter-spacing: 0.01em;
+  color: #222;
+  line-height: 1.12;
+  text-transform: none;
+  overflow-wrap: break-word;
+}
