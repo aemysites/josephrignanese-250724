@@ -1,5 +1,24 @@
+/* Carousel main layout */
+.carousel {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background: #f8f9f6;
+  border-radius: 2.6em;
+  overflow: visible;
+  min-height: 520px;
+  position: relative;
+}
+
 .carousel .carousel-slides-container {
   position: relative;
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: 36vw;
+  padding: 3vw 0;
 }
 
 .carousel .carousel-slides,
@@ -11,23 +30,37 @@
 
 .carousel .carousel-slides {
   display: flex;
-  scroll-behavior: smooth;
+  gap: 2.7vw;
+  padding: 0 2vw;
+  align-items: center;
+  overflow-x: auto;
   scroll-snap-type: x mandatory;
-  overflow: scroll clip;
+  min-height: 360px;
+  scroll-behavior: smooth;
 }
 
 .carousel .carousel-slides::-webkit-scrollbar {
   display: none;
 }
 
-.carousel .carousel-slide {
-  flex: 0 0 100%;
-  scroll-snap-align: start;
+.carousel .carousel-slide,
+.carousel .carousel-slide:has(.carousel-slide-content[data-align='center']),
+.carousel .carousel-slide:has(.carousel-slide-content[data-align='right']) {
+  flex: 0 0 20vw;
+  min-width: 252px;
+  max-width: 340px;
+  height: 420px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: flex-end;
+  border-radius: 2.2em;
+  overflow: hidden;
   position: relative;
+  margin: 0;
+  background: #ededed;
+  box-shadow: 0 2px 24px rgb(60 60 60 / 9%);
+  scroll-snap-align: start;
   width: 100%;
   min-height: min(50vw, calc(100dvh - var(--header-height)));
 }
@@ -40,15 +73,33 @@
   align-items: flex-end;
 }
 
-.carousel .carousel-slide .carousel-slide-image picture {
-  position: absolute;
-  inset: 0;
+.carousel .carousel-slide .carousel-slide-image {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
 }
 
+.carousel .carousel-slide .carousel-slide-image img,
 .carousel .carousel-slide .carousel-slide-image picture > img {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  border-radius: 2.2em;
+  display: block;
+  position: static;
+  margin: 0;
+}
+
+.carousel .carousel-slide .carousel-slide-image picture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2.2em;
+  display: block;
+  margin: 0;
 }
 
 .carousel .carousel-slide .carousel-slide-content {
@@ -56,7 +107,7 @@
   margin: 68px;
   padding: 16px;
   color: white;
-  background-color: rgba(19 19 19 / 75%);
+  background-color: rgb(19 19 19 / 75%);
   position: relative;
   width: var(--slide-content-width, auto);
 }
@@ -69,6 +120,17 @@
   padding: 12px;
   background-color: var(--light-color);
   line-height: 0;
+}
+
+.carousel .carousel-navigation-buttons button {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  border-radius: 50%;
+  padding: 0;
+  background-color: rgb(19 19 19 / 25%);
+  transition: background-color 0.2s;
 }
 
 .carousel .carousel-slide-indicator button {
@@ -99,21 +161,9 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
-.carousel .carousel-navigation-buttons button {
-  position: relative;
-  width: 44px;
-  height: 44px;
-  margin: 0;
-  border-radius: 50%;
-  padding: 0;
-  background-color: rgba(19 19 19 / 25%);
-  transition: background-color 0.2s;
-}
-
 .carousel .carousel-navigation-buttons button:hover,
 .carousel .carousel-navigation-buttons button:focus-visible {
-  background-color: rgba(19 19 19 / 75%);
+  background-color: rgb(19 19 19 / 75%);
 }
 
 .carousel .carousel-navigation-buttons button::after {
@@ -150,4 +200,116 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+/* --- Creative workaround: float the first slide's text panel in a visible left column --- */
+
+/* Always keep the first slide at the start for text extraction */
+.carousel .carousel-slide:first-child .carousel-slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: fixed;
+
+  /* fixed instead of absolute to avoid being hidden by parent overflow */
+  left: 3vw;
+  top: 6vw;
+  width: 34vw;
+  min-width: 320px;
+  max-width: 500px;
+  height: auto;
+  z-index: 30;
+  background: #fff;
+  color: #131313;
+  padding: 4vw 2vw 4vw 3vw;
+  box-sizing: border-box;
+  border-radius: 2.6em;
+  box-shadow: 0 4px 24px 0 rgb(60 60 60 / 9%);
+  opacity: 0.98;
+  pointer-events: auto;
+  gap: 1.3vw;
+}
+
+/* Only show the first slide's content fixed-panel on desktop */
+@media (width <= 900px) {
+  .carousel .carousel-slide:first-child .carousel-slide-content {
+    position: static;
+    width: 97vw;
+    min-width: 0;
+    max-width: none;
+    padding: 8vw 4vw 2vw;
+    border-radius: 2.6em 2.6em 0 0;
+    margin-bottom: 2vw;
+    box-shadow: 0 2px 22px 0 rgb(60 60 60 / 8%);
+    left: unset;
+    top: unset;
+  }
+}
+
+/* Hide all other .carousel-slide-content panels */
+.carousel .carousel-slide:not(:first-child) .carousel-slide-content {
+  display: none;
+}
+
+/* Headline */
+.carousel .carousel-slide:first-child .carousel-slide-content h1 {
+  font-size: 3vw;
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  color: #131313;
+  margin: 0 0 0.7em;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  background: transparent;
+}
+
+/* Description */
+.carousel .carousel-slide:first-child .carousel-slide-content p:not(.button-container) {
+  color: #505050;
+  font-size: 1.08vw;
+  margin: 0 0 1.5vw;
+  line-height: 1.6;
+  background: transparent;
+  max-width: 92%;
+}
+
+/* Button row styles */
+.carousel .carousel-slide:first-child .carousel-slide-content .button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+  margin: 0;
+}
+
+/* Buttons */
+.carousel .carousel-slide:first-child .carousel-slide-content .button,
+.carousel .carousel-slide:first-child .carousel-slide-content a.button {
+  border: 2px solid #222;
+  background: transparent;
+  color: #222;
+  border-radius: 2em;
+  box-shadow: none;
+  font-size: 1.05vw;
+  margin: 0;
+  padding: 0.55em 2.1em;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  min-width: 0;
+}
+
+.carousel .carousel-slide:first-child .carousel-slide-content .button:hover,
+.carousel .carousel-slide:first-child .carousel-slide-content a.button:hover {
+  background: #f3f3f3;
+  color: #3b63fb;
+  border-color: #3b63fb;
+}
+
+/* --- Gallery image cards remain visually correct --- */
+
+/* Hide navigation and indicators for cleanliness */
+.carousel .carousel-navigation-buttons,
+.carousel .carousel-slide-indicators {
+  display: none;
 }
