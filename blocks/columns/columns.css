@@ -61,6 +61,34 @@
   display: block;
 }
 
+.columns.columns2 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.columns.columns2 .columns-img-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 340px;
+  width: 400px;
+  max-width: 100%;
+  gap: 20px;
+}
+
+.columns.columns2 .columns-img-col p {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
 .columns.columns1 .columns-img-col + div {
   display: flex;
   flex-direction: column;
@@ -83,6 +111,16 @@
   text-align: left;
 }
 
+.columns.columns2 .columns-img-col picture,
+.columns.columns2 .columns-img-col img {
+  border-radius: 20px;
+  width: 400px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
 .columns.columns1 .columns-img-col + div p:not(.button-container) {
   color: #545454;
   font-size: 18px;
@@ -90,6 +128,44 @@
   line-height: 1.45;
   text-align: left;
   max-width: 360px;
+}
+
+.columns.columns2 .columns-img-col a[title*="Trends"] {
+  display: inline-block;
+  background: #f3f3ef;
+  color: #7a7a73;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 2px 14px;
+  margin-bottom: 2px;
+  margin-top: 0;
+  align-self: flex-start;
+}
+
+.columns.columns2 .columns-img-col a:not([title*="Trends"]) {
+  color: #222220;
+  font-family: Montserrat, Futura, Arial, sans-serif;
+  font-size: 2.3rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  line-height: 1.12;
+  margin: 3px 0 0;
+  text-transform: none;
+  display: block;
+  align-self: flex-start;
+}
+
+.columns.columns2 .columns-img-col br + a:not([title*="Trends"]) {
+  color: #7a7a73;
+  font-size: 1.09rem;
+  font-weight: 400;
+  margin-top: 7px;
+  margin-bottom: 0;
+  letter-spacing: 0;
+  line-height: 1.3;
 }
 
 .columns.columns1 .button-container {
@@ -130,6 +206,23 @@
   }
 }
 
+@media (width <= 900px) {
+  .columns.columns2 > div {
+    flex-direction: column;
+    gap: 28px;
+    max-width: 100%;
+  }
+  .columns.columns2 > div > div:last-child,
+  .columns.columns2 > div > div:last-child > p:nth-of-type(1),
+  .columns.columns2 > div > div:last-child > p:nth-of-type(4) {
+    max-width: 100%;
+  }
+  .columns.columns2 .columns-img-col {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
 @media (width <= 700px) {
   .columns.columns1 {
     padding: 32px 0;
@@ -147,5 +240,179 @@
   }
   .columns.columns1 > div {
     padding: 0 6px;
+  }
+}
+
+.columns.columns2 {
+  background: #f7f7f3;
+  padding: 48px 0;
+}
+
+.columns.columns2 > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  max-width: 374px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.columns.columns2 > div > div:last-child > p:nth-of-type(1),
+.columns.columns2 > div > div:last-child > p:nth-of-type(4) {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgb(45 45 40 / 6%);
+  padding: 14px 15px 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-bottom: 0;
+}
+
+.columns.columns2 > div > div:last-child > p > a > picture,
+.columns.columns2 > div > div:last-child > p > a > img {
+  border-radius: 14px;
+  width: 100%;
+  aspect-ratio: 2.3/1;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 7px;
+}
+
+.columns.columns2 > div > div:last-child .button-container .button {
+  background: #f3f3ef;
+  color: #7a7a73;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 16px;
+  padding: 2px 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin-bottom: 2px;
+  margin-top: 0;
+  line-height: 1.5;
+  display: inline-block;
+  align-self: flex-start;
+  min-width: 62px;
+}
+
+.columns.columns2 > div > div:last-child h3 {
+  color: #222220;
+  font-family: Montserrat, Futura, Arial, sans-serif;
+  font-size: 1.19rem;
+  font-weight: 900;
+  margin: 1px 0 2px;
+  text-transform: none;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  background: none;
+  align-self: flex-start;
+}
+
+.columns.columns2 > div > div:last-child h3 a {
+  color: #222220;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.columns.columns2 > div > div:last-child > h3 {
+  color: #232320;
+  font-family: Montserrat, Futura, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: none;
+  background: none;
+  margin-top: 7px;
+  margin-bottom: 1px;
+  padding-top: 13px;
+  border-top: 1px solid #e0e0dc;
+  line-height: 1.12;
+  align-self: flex-start;
+}
+
+.columns.columns2 > div > div:last-child > h3:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.columns.columns2 > div > div:last-child > h3 a {
+  color: #232320;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.columns.columns2 > div > div:last-child .button-container + h3 + .button-container .button {
+  color: #7a7a73;
+  background: none;
+  font-size: 0.97rem;
+  font-weight: 400;
+  border-radius: 0;
+  padding: 0;
+  text-transform: none;
+  margin: 0 0 1px;
+  display: block;
+  letter-spacing: 0;
+  line-height: 1.28;
+  max-width: 94%;
+}
+
+.columns.columns2 > div > div:last-child > .button-container .button {
+  background: none;
+  color: #7a7a73;
+  font-size: 0.91rem;
+  font-weight: 400;
+  border-radius: 0;
+  padding: 0;
+  text-transform: none;
+  border: none;
+  margin: 0 0 7px;
+  display: block;
+  text-align: left;
+  line-height: 1.28;
+  letter-spacing: 0;
+  max-width: 94%;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+.columns.columns2 > div > div:last-child > .button-container .button:not(:first-child) {
+  background: none;
+}
+
+.columns.columns2 .button,
+.columns.columns2 a.button {
+  box-shadow: none;
+  border: none;
+  background: none;
+  color: inherit;
+  text-transform: none;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns2 > div > div:last-child > h3 + .button-container {
+  margin-bottom: 0;
+}
+
+.columns.columns2 > div > div:last-child,
+.columns.columns2 > div > div:last-child > p:nth-of-type(1),
+.columns.columns2 > div > div:last-child > p:nth-of-type(4) {
+  max-width: 374px;
+}
+
+@media (width <= 600px) {
+  .columns.columns2 {
+    padding: 18px 0;
+  }
+  .columns.columns2 .columns-img-col {
+    padding-bottom: 7px;
   }
 }
