@@ -19,22 +19,87 @@
   display: block;
 }
 
-@media (width >= 900px) {
-  .columns > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
-  }
-
-  .columns > div > div {
-    flex: 1;
-    order: unset;
-  }
-}
-
 .columns.columns1 {
   background: #f8f8f4;
   padding: 64px 0;
+}
+
+.columns.columns2 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.columns.columns2 .columns-img-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 340px;
+  width: 400px;
+  max-width: 100%;
+  gap: 20px;
+}
+
+.columns.columns2 .columns-img-col p {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.columns.columns2 .columns-img-col a[title*="Trends"] {
+  display: inline-block;
+  background: #f3f3ef;
+  color: #7a7a73;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 2px 14px;
+  margin-bottom: 2px;
+  margin-top: 0;
+  align-self: flex-start;
+}
+
+.columns.columns2 .columns-img-col a:not([title*="Trends"]) {
+  color: #222220;
+  font-family: Montserrat, Futura, Arial, sans-serif;
+  font-size: 2.3rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  line-height: 1.12;
+  margin: 3px 0 0;
+  text-transform: none;
+  display: block;
+  align-self: flex-start;
+}
+
+.columns.columns2 > div > div:last-child h3 a {
+  color: #222220;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.columns.columns2 > div > div:last-child > h3 a {
+  color: #232320;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.columns.columns2 .columns-img-col br + a:not([title*="Trends"]) {
+  color: #7a7a73;
+  font-size: 1.09rem;
+  font-weight: 400;
+  margin-top: 7px;
+  margin-bottom: 0;
+  letter-spacing: 0;
+  line-height: 1.3;
 }
 
 .columns.columns1 > div {
@@ -122,38 +187,9 @@
   outline: none;
 }
 
-/* --- columns2 styles below --- */
 .columns.columns2 {
   background: #f7f7f3;
   padding: 48px 0;
-}
-
-.columns.columns2 > div {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 12px;
-  max-width: 1080px;
-  margin: 0 auto;
-}
-
-.columns.columns2 .columns-img-col {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-width: 340px;
-  width: 400px;
-  max-width: 100%;
-  gap: 20px;
-}
-
-.columns.columns2 .columns-img-col p {
-  margin: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
 }
 
 .columns.columns2 .columns-img-col picture,
@@ -164,44 +200,6 @@
   aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
-}
-
-.columns.columns2 .columns-img-col a[title*="Trends"] {
-  display: inline-block;
-  background: #f3f3ef;
-  color: #7a7a73;
-  border-radius: 16px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  padding: 2px 14px;
-  margin-bottom: 2px;
-  margin-top: 0;
-  align-self: flex-start;
-}
-
-.columns.columns2 .columns-img-col a:not([title*="Trends"]) {
-  color: #222220;
-  font-family: Montserrat, Futura, Arial, sans-serif;
-  font-size: 2.3rem;
-  font-weight: 900;
-  letter-spacing: -0.5px;
-  line-height: 1.12;
-  margin: 3px 0 0;
-  text-transform: none;
-  display: block;
-  align-self: flex-start;
-}
-
-.columns.columns2 .columns-img-col br + a:not([title*="Trends"]) {
-  color: #7a7a73;
-  font-size: 1.09rem;
-  font-weight: 400;
-  margin-top: 7px;
-  margin-bottom: 0;
-  letter-spacing: 0;
-  line-height: 1.3;
 }
 
 .columns.columns2 > div > div:last-child {
@@ -268,12 +266,6 @@
   align-self: flex-start;
 }
 
-.columns.columns2 > div > div:last-child h3 a {
-  color: #222220;
-  font-weight: 900;
-  text-decoration: none;
-}
-
 .columns.columns2 > div > div:last-child > h3 {
   color: #232320;
   font-family: Montserrat, Futura, Arial, sans-serif;
@@ -294,12 +286,6 @@
   border-top: none;
   padding-top: 0;
   margin-top: 0;
-}
-
-.columns.columns2 > div > div:last-child > h3 a {
-  color: #232320;
-  font-weight: 900;
-  text-decoration: none;
 }
 
 .columns.columns2 > div > div:last-child > .button-container .button {
@@ -364,7 +350,6 @@
   max-width: 374px;
 }
 
-/* --- columns3 styles below --- */
 .columns.columns3 {
   padding: 48px 0;
   background: #fff;
@@ -378,7 +363,6 @@
   width: 100%;
 }
 
-/* Left column: vertical stack and width control */
 .columns.columns3 > div > div:first-child {
   display: flex;
   flex-direction: column;
@@ -390,7 +374,7 @@
 }
 
 .columns.columns3 h2 {
-  font-family: Syncopate, "Syncopate Fallback", sans-serif;
+  font-family: Syncopate, Syncopate Fallback, sans-serif;
   font-size: 2.8rem;
   font-weight: 400;
   letter-spacing: 0.03em;
@@ -410,7 +394,6 @@
   overflow-wrap: break-word;
 }
 
-/* Right column: button stack, vertically center with left content */
 .columns.columns3 > div > div:last-child {
   display: flex;
   flex-direction: column;
@@ -419,7 +402,6 @@
   height: 100%;
 }
 
-/* Stack the two buttons with gap */
 .columns.columns3 > div > div:last-child p {
   display: flex;
   flex-direction: column;
@@ -428,7 +410,6 @@
   margin: 0;
 }
 
-/* Button styles */
 .columns.columns3 > div > div:last-child a {
   display: inline-block;
   min-width: 200px;
@@ -457,7 +438,18 @@
   color: #1d3ecf;
 }
 
-/* --- Media queries --- */
+@media (width >= 900px) {
+  .columns > div {
+    align-items: center;
+    flex-direction: unset;
+    gap: 24px;
+  }
+  .columns > div > div {
+    flex: 1;
+    order: unset;
+  }
+}
+
 @media (width <= 1000px) {
   .columns.columns1 > div {
     grid-template-columns: 1fr;
@@ -473,13 +465,11 @@
     gap: 28px;
     max-width: 100%;
   }
-
   .columns.columns2 > div > div:last-child,
   .columns.columns2 > div > div:last-child > p:nth-of-type(1),
   .columns.columns2 > div > div:last-child > p:nth-of-type(4) {
     max-width: 100%;
   }
-
   .columns.columns2 .columns-img-col {
     width: 100%;
     min-width: 0;
@@ -491,27 +481,31 @@
     grid-template-columns: 1fr;
     gap: 32px;
   }
+  .columns.columns5 > div {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .columns.columns5 .columns-img-col {
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+  }
 }
 
 @media (width <= 700px) {
   .columns.columns1 {
     padding: 32px 0;
   }
-
   .columns.columns1 .columns-img-col img {
     max-width: 100%;
     min-width: 0;
   }
-
   .columns.columns1 .columns-img-col + div h1 {
     font-size: 32px;
   }
-
   .columns.columns1 .columns-img-col + div {
     max-width: 100%;
     gap: 8px;
   }
-
   .columns.columns1 > div {
     padding: 0 6px;
   }
@@ -521,7 +515,6 @@
   .columns.columns2 {
     padding: 18px 0;
   }
-
   .columns.columns2 .columns-img-col {
     padding-bottom: 7px;
   }
@@ -531,19 +524,56 @@
   .columns.columns3 {
     padding: 32px 0;
   }
-
   .columns.columns3 h2 {
     font-size: 2rem;
     margin-bottom: 18px;
   }
-
   .columns.columns3 > div > div:first-child {
     max-width: 100%;
   }
-
   .columns.columns3 > div > div:last-child a {
     min-width: 120px;
     font-size: 0.95rem;
     padding: 8px 0;
   }
+}
+
+.columns.columns5 {
+  width: 100%;
+  max-width: unset;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns5 > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  align-items: stretch;
+}
+
+.columns.columns5 .columns-img-col {
+  border-radius: 28px;
+  overflow: hidden;
+  background: #fff;
+  aspect-ratio: 5 / 4;
+  display: flex;
+  align-items: stretch;
+  min-width: 0;
+  min-height: 0;
+}
+
+.columns.columns5 .columns-img-col picture,
+.columns.columns5 .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.columns.columns5 .columns-img-col img {
+  object-fit: cover;
+  border-radius: 28px;
 }
