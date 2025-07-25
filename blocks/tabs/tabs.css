@@ -83,7 +83,6 @@
 .tabs .tabs-list button:active {
   border-radius: 0;
   background: none;
-  color: inherit;
   box-shadow: none;
   outline: none;
   margin: 0;
