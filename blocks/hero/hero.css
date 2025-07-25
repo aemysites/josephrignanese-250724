@@ -1,4 +1,3 @@
-/* --- HERO CONTAINER RULES --- */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -47,7 +46,6 @@
   }
 }
 
-/* HERO ROOT: full-bleed, background image, vertical centering */
 .hero.hero6 {
   width: 100vw;
   min-height: 480px;
@@ -62,7 +60,6 @@
   overflow: hidden;
 }
 
-/* Remove any absolute/floating placement on the inset image */
 .hero.hero6 > div:nth-child(2) > div {
   display: flex;
   flex-direction: row;
@@ -79,7 +76,6 @@
   box-shadow: 0 2px 12px rgb(0 0 0 / 7%);
 }
 
-/* RESPONSIVE: stack overlay content */
 @media (width <= 900px) {
   .hero.hero6 {
     min-height: 370px;
@@ -100,7 +96,6 @@
   }
 }
 
-/* RIGHT COLUMN & STACKED CONTENT: headline, list, button stacked */
 .hero.hero6 > div:nth-child(2) > div > div,
 .hero.hero6 > div:nth-child(2) > div > :not(:first-child) {
   display: flex;
@@ -113,7 +108,6 @@
   width: 100%;
 }
 
-/* ICON LISTS: stack vertically + Remove unwanted p margins */
 .hero.hero6 > div:nth-child(2) > div > div > p,
 .hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p {
   display: flex;
@@ -129,13 +123,11 @@
   margin-bottom: 0;
 }
 
-/* LEFT IMAGE: inside overlay, left aligned, sized */
 .hero.hero6 > div:nth-child(2) > div > p:first-child {
   margin: 0;
   align-self: flex-start;
   display: flex;
   flex-shrink: 0;
-  /* To keep a small gap between image and right column on mobile */
 }
 
 .hero.hero6 > div:nth-child(2) > div > div > p > picture,
@@ -164,7 +156,6 @@
   display: block;
 }
 
-/* HEADLINE */
 .hero.hero6 > div:nth-child(2) > div > div > h2,
 .hero.hero6 > div:nth-child(2) > div > :not(:first-child) > h2 {
   font-family: var(--heading-font-family);
@@ -186,18 +177,19 @@
     text-align: center;
     width: 100%;
   }
+
   .hero.hero6 > div:nth-child(2) > div > div > h2,
   .hero.hero6 > div:nth-child(2) > div > :not(:first-child) > h2 {
     font-size: 1.55rem;
     text-align: center;
   }
+
   .hero.hero6 > div:nth-child(2) > div > div > p.button-container,
   .hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p.button-container {
     justify-content: center;
   }
 }
 
-/* BUTTON: in stack, full width on mobile, left-aligned on desktop */
 .hero.hero6 > div:nth-child(2) > div > div > p.button-container,
 .hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p.button-container {
   margin-top: 24px;
@@ -207,8 +199,9 @@
   justify-content: flex-start;
 }
 
-.hero.hero6 .button-container .button,
-.hero-container > .hero-wrapper > .block.hero.hero6 .button {
+/* Resolved specificity by grouping all .button rules and ordering from less specific to more specific. */
+.hero-container > .hero-wrapper > .block.hero.hero6 .button,
+.hero.hero6 .button-container .button {
   background: #fff;
   color: #111;
   border: 1.5px solid #111;
@@ -229,11 +222,209 @@
   color: #111;
 }
 
-/* Make sure hero images fill their cells */
+/* Reordered .picture img selectors with increasing specificity */
 .hero.hero6 picture img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
   border-radius: inherit;
+}
+
+.hero.hero6 > div:nth-child(2) > div > div > p > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+.hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+/* Hero 7 block selectors ordered before .hero6 specificity */
+.hero.hero7.block {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 540px;
+  border-radius: 18px;
+  overflow: hidden;
+  width: 100%;
+  background: none;
+}
+
+.hero.hero7.block > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  display: block;
+}
+
+.hero.hero7.block > div:first-child picture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  max-width: unset;
+  max-height: unset;
+  border-radius: 18px;
+}
+
+.hero.hero7.block > div:first-child img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  max-width: unset;
+  max-height: unset;
+  border-radius: 18px;
+}
+
+.hero.hero7.block > div:last-child {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  pointer-events: none;
+  min-height: 100%;
+}
+
+.hero.hero7.block > div:last-child > div {
+  pointer-events: auto;
+  background: rgb(34 34 34 / 44%);
+  border: 1px solid #fff;
+  border-radius: 18px;
+  backdrop-filter: blur(3px);
+  box-sizing: border-box;
+  max-width: 410px;
+  margin-left: 12px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding: 24px 28px 18px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 2px 12px 0 rgb(17 24 39 / 8%);
+}
+
+@media (width <= 900px) {
+  .hero.hero7.block > div:last-child > div {
+    max-width: 96vw;
+    margin: 6px auto;
+    padding: 14px 4vw;
+    border-radius: 12px;
+  }
+
+  .hero.hero7.block {
+    align-items: flex-start;
+    min-height: 340px;
+  }
+}
+
+.hero.hero7.block h1 {
+  color: #fff;
+  font-family: var(--heading-font-family);
+  font-size: clamp(2.1rem, 6vw, 2.9rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+  margin: 0 0 18px;
+  max-width: 100%;
+  text-align: left;
+}
+
+.hero.hero7.block p {
+  color: #d8d8d8;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  margin: 0 0 18px;
+  max-width: 100%;
+  text-align: left;
+}
+
+.hero.hero6 > div:nth-child(2) > div > div > p {
+  color: #d8d8d8;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  margin: 0 0 18px;
+  max-width: 100%;
+  text-align: left;
+}
+
+.hero.hero7.block .button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 6px;
+  width: 100%;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero7 .button,
+.hero.hero7.block .button {
+  min-width: 0;
+  padding: 0.63em 1.8em;
+  border-radius: 999px;
+  font-size: 0.99rem;
+  font-weight: 500;
+  text-align: center;
+  background: #fff;
+  color: #222;
+  border: none;
+  margin: 0 9px 0 0;
+  outline: none;
+  transition: background 0.18s, color 0.18s, border 0.18s;
+  box-shadow: none;
+}
+
+.hero.hero7.block .button-container a.button:hover,
+.hero.hero7.block .button-container a.button:focus {
+  background: #ededed;
+  color: #111;
+  border-color: #ededed;
+  text-decoration: none;
+}
+
+.hero.hero7.block .button-container a.button + a.button {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  margin: 0;
+}
+
+.hero.hero7.block .button-container a.button + a.button:hover,
+.hero.hero7.block .button-container a.button + a.button:focus {
+  background: rgb(255 255 255 / 15%);
+  color: #fff;
+  border-color: #fff;
+}
+
+@media (width <= 600px) {
+  .hero.hero7.block .button-container {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .hero.hero7.block > div:last-child > div {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
