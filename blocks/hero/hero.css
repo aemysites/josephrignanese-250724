@@ -94,6 +94,7 @@
     padding-top: 16px;
     padding-bottom: 16px;
   }
+
   .hero.hero6 > div:nth-child(2) > div {
     flex-direction: column;
     align-items: center;
@@ -130,8 +131,22 @@
   width: 100%;
 }
 
-/* Merge .hero.hero7.block p before .hero.hero6 > div:nth-child(2) ... p and remove margin shorthand after margin-top and margin-bottom */
-.hero.hero7.block p,
+/* no-descending-specificity: Place .hero.hero7.block p before more specific selectors */
+.hero.hero7.block p {
+  color: #d8d8d8;
+  font-size: 1.02rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.55;
+  text-align: left;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
 .hero.hero6 > div:nth-child(2) > div > div > p,
 .hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p {
   display: flex;
@@ -148,11 +163,6 @@
   letter-spacing: 0.01em;
 }
 
-.hero.hero7.block p {
-  color: #d8d8d8;
-  font-size: 1.02rem;
-}
-
 .hero.hero6 > div:nth-child(2) > div > p:first-child {
   margin: 0;
   align-self: flex-start;
@@ -160,11 +170,50 @@
   flex-shrink: 0;
 }
 
-/* Correct specificity order for picture selectors */
-.hero.hero11 > div:first-child > div picture,
+/* no-descending-specificity: Place less specific picture/img selectors before more specific ones */
 .hero.hero6 > div:nth-child(2) > div > div > p > picture,
-.hero.hero11 > div:first-child > div picture:not(:first-of-type),
-.hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p > picture {
+.hero.hero6 > div:nth-child(2) > div > div > p > img {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
+  margin-right: 9px;
+  object-fit: contain;
+  border-radius: 3.5px;
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow: none;
+}
+
+.hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p > picture,
+.hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p > img {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
+  margin-right: 9px;
+  object-fit: contain;
+  border-radius: 3.5px;
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow: none;
+}
+
+.hero.hero7.block > div:first-child picture,
+.hero.hero7.block > div:first-child img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  max-width: unset;
+  max-height: unset;
+  border-radius: 18px;
+}
+
+.hero.hero11 > div:first-child > div picture,
+.hero.hero11 > div:first-child > div picture:not(:first-of-type) {
   display: inline-block;
   vertical-align: top;
   max-width: 900px;
@@ -177,7 +226,6 @@
   display: none;
 }
 
-/* Order img selectors by specificity */
 .hero.hero6 picture img,
 .hero.hero11 > div:first-child > div picture img,
 .hero.hero7.block > div:first-child img,
@@ -197,22 +245,6 @@
   object-fit: cover;
   display: block;
   border-radius: inherit;
-}
-
-.hero.hero6 > div:nth-child(2) > div > div > p > picture,
-.hero.hero6 > div:nth-child(2) > div > div > p > img,
-.hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p > picture,
-.hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p > img {
-  width: 16px;
-  height: 16px;
-  min-width: 16px;
-  min-height: 16px;
-  margin-right: 9px;
-  object-fit: contain;
-  border-radius: 3.5px;
-  display: inline-block;
-  vertical-align: middle;
-  box-shadow: none;
 }
 
 .hero.hero6 > div:nth-child(2) > div > p:first-child picture,
@@ -246,11 +278,13 @@
     text-align: center;
     width: 100%;
   }
+
   .hero.hero6 > div:nth-child(2) > div > div > h2,
   .hero.hero6 > div:nth-child(2) > div > :not(:first-child) > h2 {
     font-size: 1.55rem;
     text-align: center;
   }
+
   .hero.hero6 > div:nth-child(2) > div > div > p.button-container,
   .hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p.button-container {
     justify-content: center;
@@ -266,7 +300,6 @@
   justify-content: flex-start;
 }
 
-/* Order .button rules with hero7.block .button first as required by specificity */
 .hero.hero7.block .button,
 .hero.hero6 .button-container .button,
 .hero-container > .hero-wrapper > .block.hero.hero6 .button,
@@ -385,6 +418,7 @@
     padding: 14px 4vw;
     border-radius: 12px;
   }
+
   .hero.hero7.block {
     align-items: flex-start;
     min-height: 340px;
@@ -431,6 +465,7 @@
     gap: 8px;
     align-items: flex-start;
   }
+
   .hero.hero7.block > div:last-child > div {
     margin-left: 0;
     margin-right: 0;
@@ -462,9 +497,100 @@
   max-width: 100%;
   height: auto;
   object-fit: contain;
-  /* mimic a single line of centered content */
 }
 
 .hero.hero11 > div:last-child {
   display: none;
+}
+
+.hero.hero13 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  width: 100vw;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero.hero13 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  display: flex;
+}
+
+.hero.hero13 > div:first-child picture,
+.hero.hero13 > div:first-child picture > img {
+  width: 100vw;
+  height: 100%;
+  min-height: 80vh;
+  object-fit: cover;
+  display: block;
+}
+
+.hero.hero13::after {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 4%);
+  z-index: 2;
+  content: "";
+}
+
+.hero.hero13 > div:last-child {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-8%);
+  margin: 0;
+}
+
+.hero.hero13 h1 {
+  color: #fff;
+  font-family: Orbitron, Montserrat, Syncopate, Arial, sans-serif;
+  font-weight: 300;
+  font-size: clamp(2.5rem, 7vw, 6.25rem);
+  line-height: 1.13;
+  text-align: center;
+  text-shadow: 0 2px 24px rgb(0 0 0 / 22%);
+  margin: 0;
+  letter-spacing: 0.02em;
+  width: 100%;
+  max-width: 72vw;
+}
+
+@media (width >= 900px) {
+  .hero.hero13 {
+    min-height: 90vh;
+  }
+
+  .hero.hero13 > div:first-child picture,
+  .hero.hero13 > div:first-child picture > img {
+    min-height: 90vh;
+  }
+
+  .hero.hero13 > div:last-child {
+    transform: translateY(-10%);
+  }
+
+  .hero.hero13 h1 {
+    font-size: clamp(4rem, 7vw, 7rem);
+    max-width: 50vw;
+  }
 }
