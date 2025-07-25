@@ -1,4 +1,3 @@
-/* ----- General Container Styles ----- */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -47,21 +46,45 @@
   }
 }
 
-.hero.hero6 {
-  width: 100vw;
-  min-height: 480px;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  background: url("./media_1753fba6d89ace7e30bcb5e945eb269e1f6612646.png?width=2000&format=webply&optimize=medium") center center / cover no-repeat;
-  border-radius: 24px;
-  overflow: hidden;
+.hero.hero38 > div:first-child picture,
+.hero.hero38 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-/* --- Order image/picture rules by specificity: least to most specific --- */
+.hero.hero13 > div:first-child picture,
+.hero.hero13 > div:first-child picture > img {
+  width: 100vw;
+  height: 100%;
+  min-height: 80vh;
+  object-fit: cover;
+  display: block;
+}
+
+.hero.hero11 > div:first-child > div picture,
+.hero.hero11 > div:first-child > div picture:not(:first-of-type) {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero.hero11 > div:first-child > div picture:not(:first-of-type),
+.hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p > picture {
+  display: none;
+}
+
+.hero.hero11 > div:first-child > div picture img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 .hero.hero6 > div:nth-child(2) > div > div > p > picture,
 .hero.hero6 > div:nth-child(2) > div > div > p > img,
 .hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p > picture,
@@ -98,59 +121,6 @@
   border-radius: inherit;
 }
 
-.hero.hero38 > div:first-child picture,
-.hero.hero38 > div:first-child img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.hero.hero13 > div:first-child picture,
-.hero.hero13 > div:first-child picture > img {
-  width: 100vw;
-  height: 100%;
-  min-height: 80vh;
-  object-fit: cover;
-  display: block;
-}
-
-.hero.hero7.block > div:first-child picture,
-.hero.hero7.block > div:first-child img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  max-width: unset;
-  max-height: unset;
-  border-radius: 18px;
-}
-
-.hero.hero11 > div:first-child > div picture,
-.hero.hero11 > div:first-child > div picture:not(:first-of-type) {
-  display: inline-block;
-  vertical-align: top;
-  max-width: 900px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.hero.hero11 > div:first-child > div picture:not(:first-of-type),
-.hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p > picture {
-  display: none;
-}
-
-.hero.hero11 > div:first-child > div picture img {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-/* --- Rest of block styles as before, order unchanged because no overlap with above selectors --- */
 .hero.hero6 > div:nth-child(2) > div > p:first-child picture,
 .hero.hero6 > div:nth-child(2) > div > p:first-child img {
   border-radius: 16px;
@@ -201,99 +171,17 @@
   box-shadow: 0 2px 12px rgb(0 0 0 / 7%);
 }
 
-@media (width <= 900px) {
-  .hero.hero6 {
-    min-height: 370px;
-    height: auto;
-    border-radius: 18px;
-    padding-top: 16px;
-    padding-bottom: 16px;
-  }
-
-  .hero.hero6 > div:nth-child(2) > div {
-    flex-direction: column;
-    align-items: center;
-    max-width: 98vw;
-    width: 100%;
-    margin-left: 0;
-    padding: 18px 8px;
-    gap: 16px;
-  }
-
-  .hero.hero6 > div:nth-child(2) > div > div,
-  .hero.hero6 > div:nth-child(2) > div > :not(:first-child) {
-    align-items: center;
-    text-align: center;
-    width: 100%;
-  }
-
-  .hero.hero6 > div:nth-child(2) > div > div > h2,
-  .hero.hero6 > div:nth-child(2) > div > :not(:first-child) > h2 {
-    font-size: 1.55rem;
-    text-align: center;
-  }
-
-  .hero.hero6 > div:nth-child(2) > div > div > p.button-container,
-  .hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p.button-container {
-    justify-content: center;
-  }
-}
-
-.hero.hero11 > div:first-child > div,
-.hero.hero6 > div:nth-child(2) > div > div {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
+.hero.hero7.block > div:first-child picture,
+.hero.hero7.block > div:first-child img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  text-align: center;
-  margin: 0 auto;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.hero.hero6 > div:nth-child(2) > div > div,
-.hero.hero6 > div:nth-child(2) > div > :not(:first-child) {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  flex: 1 1 0;
-  min-width: 0;
-  gap: 0;
-  width: 100%;
-}
-
-.hero.hero6 > div:nth-child(2) > div > div > p,
-.hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  max-width: 100%;
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 1.55;
-  text-align: left;
-  font-size: 1.04rem;
-  color: rgb(34 34 34 / 98%);
-  font-weight: 500;
-  letter-spacing: 0.01em;
-}
-
-.hero.hero6 > div:nth-child(2) > div > p:first-child {
-  margin: 0;
-  align-self: flex-start;
-  display: flex;
-  flex-shrink: 0;
-}
-
-.hero.hero6 > div:nth-child(2) > div > div > p.button-container,
-.hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p.button-container {
-  margin-top: 24px;
-  margin-bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  max-width: unset;
+  max-height: unset;
+  border-radius: 18px;
 }
 
 .hero.hero7.block p {
@@ -363,16 +251,110 @@
 }
 
 @media (width <= 900px) {
+  .hero.hero6 {
+    min-height: 370px;
+    height: auto;
+    border-radius: 18px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .hero.hero6 > div:nth-child(2) > div {
+    flex-direction: column;
+    align-items: center;
+    max-width: 98vw;
+    width: 100%;
+    margin-left: 0;
+    padding: 18px 8px;
+    gap: 16px;
+  }
+
+  .hero.hero6 > div:nth-child(2) > div > div,
+  .hero.hero6 > div:nth-child(2) > div > :not(:first-child) {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero.hero6 > div:nth-child(2) > div > div > h2,
+  .hero.hero6 > div:nth-child(2) > div > :not(:first-child) > h2 {
+    font-size: 1.55rem;
+    text-align: center;
+  }
+
+  .hero.hero6 > div:nth-child(2) > div > div > p.button-container,
+  .hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p.button-container {
+    justify-content: center;
+  }
+
   .hero.hero7.block > div:last-child > div {
     max-width: 96vw;
     margin: 6px auto;
     padding: 14px 4vw;
     border-radius: 12px;
   }
+
   .hero.hero7.block {
     align-items: flex-start;
     min-height: 340px;
   }
+}
+
+.hero.hero11 > div:first-child > div,
+.hero.hero6 > div:nth-child(2) > div > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero.hero6 > div:nth-child(2) > div > div,
+.hero.hero6 > div:nth-child(2) > div > :not(:first-child) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 1 1 0;
+  min-width: 0;
+  gap: 0;
+  width: 100%;
+}
+
+.hero.hero6 > div:nth-child(2) > div > div > p,
+.hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.55;
+  text-align: left;
+  font-size: 1.04rem;
+  color: rgb(34 34 34 / 98%);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.hero.hero6 > div:nth-child(2) > div > p:first-child {
+  margin: 0;
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+}
+
+.hero.hero6 > div:nth-child(2) > div > div > p.button-container,
+.hero.hero6 > div:nth-child(2) > div > :not(:first-child) > p.button-container {
+  margin-top: 24px;
+  margin-bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .hero.hero7.block h1 {
@@ -403,6 +385,7 @@
     gap: 8px;
     align-items: flex-start;
   }
+
   .hero.hero7.block > div:last-child > div {
     margin-left: 0;
     margin-right: 0;
@@ -462,26 +445,6 @@
   padding: 48px 0;
   width: 100%;
   box-sizing: border-box;
-}
-
-.hero.hero11 > div:first-child > div picture:not(:first-of-type) {
-  display: none;
-}
-
-.hero.hero11 > div:first-child > div picture {
-  display: inline-block;
-  vertical-align: top;
-  max-width: 900px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.hero.hero11 > div:first-child > div picture img {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
 }
 
 .hero.hero11 > div:last-child {
@@ -668,6 +631,7 @@
     padding-top: 7vh;
     max-width: 50vw;
   }
+
   .hero.hero38 h1 {
     font-size: 46px;
   }
@@ -677,11 +641,13 @@
   .hero.hero38 {
     min-height: 70vh;
   }
+
   .hero.hero38 > div:last-child {
     padding-left: 24px;
     padding-top: 32px;
     max-width: 96vw;
   }
+
   .hero.hero38 h1 {
     font-size: 29px;
   }
@@ -694,23 +660,204 @@
     justify-content: flex-start;
     align-items: flex-start;
   }
+
   .hero.hero38 > div:last-child {
     padding: 14px 8px 8px;
     max-width: 98vw;
     gap: 8px;
   }
+
   .hero.hero38 h1 {
     font-size: 18px;
     line-height: 1.1;
   }
+
   .hero.hero38 p {
     font-size: 13px;
     max-width: 97vw;
   }
+
   .hero-container > .hero-wrapper > .block.hero.hero38 .button {
     font-size: 15px;
     padding: 10px 18px;
     min-height: 36px;
     border-radius: 16px;
+  }
+}
+
+.hero.hero6 {
+  width: 100vw;
+  min-height: 480px;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: url("./media_1753fba6d89ace7e30bcb5e945eb269e1f6612646.png?width=2000&format=webply&optimize=medium") center center / cover no-repeat;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.hero.hero19 {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0;
+  background: none;
+  overflow: hidden;
+  display: block;
+}
+
+.hero.hero19 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero.hero19 > div:first-child > div {
+  /* Remove display: contents to ensure all <p> become grid cells */
+}
+
+.hero.hero19 > div:first-child p {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  overflow: hidden;
+  grid-row: auto;
+  grid-column: auto;
+}
+
+.hero.hero19 > div:first-child picture,
+.hero.hero19 > div:first-child img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-width: 0;
+  min-height: 0;
+}
+
+.hero.hero19 > div:last-child {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+.hero.hero19 > div:last-child > div {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  text-align: center;
+  background: none;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.hero.hero19 h1 {
+  color: #fff;
+  font-family: var(--heading-font-family);
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  margin-bottom: 3px;
+  margin-top: 0;
+  text-align: center;
+  text-shadow: 0 2px 16px rgb(0 0 0 / 30%);
+}
+
+.hero.hero19 > div:last-child p:not(:last-child) {
+  color: #fff;
+  opacity: 0.96;
+  font-size: 1.16rem;
+  font-weight: 400;
+  margin: 0 0 7px;
+  line-height: 1.6;
+  text-align: center;
+  text-shadow: 0 2px 10px rgb(0 0 0 / 18%);
+}
+
+.hero.hero19 > div:last-child p:last-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 36px;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.hero.hero19 > div:last-child p:last-child a {
+  display: inline-block;
+  padding: 22px 56px;
+  border: 2px solid #fff;
+  border-radius: 48px;
+  color: #fff;
+  background: transparent;
+  font-size: 1.22rem;
+  font-family: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+  margin: 0 2px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 13%);
+}
+
+.hero.hero19 > div:last-child p:last-child a:hover,
+.hero.hero19 > div:last-child p:last-child a:focus {
+  background: #fff;
+  color: #222;
+  border-color: #fff;
+}
+
+@media (width <= 900px) {
+  .hero.hero19 {
+    min-height: 600px;
+  }
+
+  .hero.hero19 > div:first-child {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  .hero.hero19 > div:last-child {
+    padding: 0;
+    min-height: 600px;
+  }
+
+  .hero.hero19 h1 {
+    font-size: clamp(1.6rem, 8vw, 2.7rem);
+  }
+
+  .hero.hero19 > div:last-child > div {
+    padding: 0 4vw;
+  }
+
+  .hero.hero19 > div:last-child p:last-child {
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 8px;
   }
 }
