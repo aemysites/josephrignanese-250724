@@ -1003,7 +1003,6 @@
   }
 }
 
-/* Image column */
 .columns.columns31 .columns-img-col {
   display: flex;
   align-items: flex-start;
@@ -1038,7 +1037,6 @@
   }
 }
 
-/* Text column */
 .columns.columns31 > div > div:not(.columns-img-col) {
   display: flex;
   flex-direction: column;
@@ -1047,10 +1045,9 @@
   min-width: 0;
   max-width: 340px;
   padding: 0 8px;
-  margin-top: 10px;     /* Shift text up to reduce distance from image top */
+  margin-top: 10px;
 }
 
-/* Label and pill row */
 .columns.columns31 > div > div:not(.columns-img-col) .label-pill-row {
   display: flex;
   flex-direction: row;
@@ -1086,17 +1083,13 @@
   display: inline-block;
 }
 
-/* Use flex for the two row children (simulate .label-pill-row) */
 .columns.columns31 > div > div:not(.columns-img-col) {
-  /* ...existing... */
 }
 
 .columns.columns31 > div > div:not(.columns-img-col) p:nth-child(1),
 .columns.columns31 > div > div:not(.columns-img-col) p:nth-child(2) {
-  /* nothing extra here, handled above */
 }
 
-/* Headline */
 .columns.columns31 > div > div:not(.columns-img-col) h2 {
   font-family: var(--heading-font-family);
   font-size: 2.15rem;
@@ -1110,7 +1103,6 @@
   max-width: 340px;
 }
 
-/* Meta (byline/date) inline arrangement, tighter spacing */
 .columns.columns31 > div > div:not(.columns-img-col) p:nth-child(n+4):nth-child(-n+8) {
   display: inline;
   color: #ababab;
@@ -1136,7 +1128,6 @@
   margin-right: 0;
 }
 
-/* Place label and pill on same row using flex on parent */
 .columns.columns31 > div > div:not(.columns-img-col) {
   position: relative;
 }
@@ -1154,7 +1145,6 @@
 
 @media (width >= 600px) {
   .columns.columns31 > div > div:not(.columns-img-col) {
-    /* force label/pill to row using flex only for first two children */
   }
 
   .columns.columns31 > div > div:not(.columns-img-col) p:nth-child(1),
@@ -1181,5 +1171,101 @@
   .columns.columns31 > div > div:not(.columns-img-col) p:nth-child(n+4):nth-child(-n+8) {
     text-align: center;
     display: inline;
+  }
+}
+
+
+.columns.columns30 > div {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 56px;
+  padding: 60px 56px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1280px;
+}
+
+.columns.columns30 .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-width: 0;
+  min-height: 0;
+  transform-origin: center center;
+}
+
+.columns.columns30 .columns-img-col:nth-child(1) {
+  transform: rotate(-7deg);
+}
+
+.columns.columns30 .columns-img-col:nth-child(2) {
+  transform: rotate(4deg);
+}
+
+.columns.columns30 .columns-img-col:nth-child(3) {
+  transform: rotate(-5deg);
+}
+
+.columns.columns30 .columns-img-col:nth-child(4) {
+  transform: rotate(3.5deg);
+}
+
+.columns.columns30 .columns-img-col:nth-child(5) {
+  transform: rotate(-4deg);
+}
+
+.columns.columns30 .columns-img-col:nth-child(6) {
+  transform: rotate(3deg);
+}
+
+.columns.columns30 .columns-img-col img {
+  width: 220px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+  box-shadow: none;
+  max-width: unset;
+  min-width: 0;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive: wrap images and shrink on small screens */
+@media (width <= 1200px) {
+  .columns.columns30 > div {
+    gap: 32px;
+    padding: 36px 16px;
+    max-width: 100vw;
+  }
+
+  .columns.columns30 .columns-img-col img {
+    width: 140px;
+    height: 100px;
+    border-radius: 10px;
+  }
+}
+
+@media (width <= 700px) {
+  .columns.columns30 > div {
+    gap: 10px;
+    padding: 6vw 2vw;
+    flex-wrap: wrap;
+  }
+
+  .columns.columns30 .columns-img-col img {
+    width: 94vw;
+    max-width: 350px;
+    height: 30vw;
+    min-height: 70px;
+    max-height: 120px;
+    border-radius: 7px;
   }
 }
