@@ -1,5 +1,3 @@
-/* ---- Universal Columns Styles ---- */
-
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -20,8 +18,6 @@
 .columns > div > .columns-img-col img {
   display: block;
 }
-
-/* ---- Columns 1 ---- */
 
 .columns.columns1 {
   background: #f8f8f4;
@@ -112,8 +108,6 @@
   border-color: #191919;
   outline: none;
 }
-
-/* ---- Columns 2 ---- */
 
 .columns.columns2 {
   background: #f7f7f3;
@@ -356,8 +350,6 @@
   text-decoration: none;
 }
 
-/* ---- Columns 5 ---- */
-
 .columns.columns5 {
   width: 100%;
   max-width: unset;
@@ -398,8 +390,6 @@
   border-radius: 28px;
 }
 
-/* ---- Columns 8 ---- */
-
 .columns.columns8 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -435,8 +425,6 @@
   object-fit: cover;
   display: block;
 }
-
-/* ---- Columns 34 ---- */
 
 .columns.columns34 > div {
   display: flex;
@@ -523,18 +511,21 @@
     gap: 20px;
     padding: 22px 3vw 6px;
   }
+
   .columns.columns34 > div > div:last-child {
     min-width: 0;
     width: 100%;
     justify-content: flex-start;
     align-items: flex-start;
   }
+
   .columns.columns34 .button {
     min-width: 150px;
     width: 100%;
     max-width: 350px;
     font-size: 0.98rem;
   }
+
   .columns.columns34 .button-container {
     padding-top: 0;
   }
@@ -547,8 +538,6 @@
   background: #fafafa;
   color: #111;
 }
-
-/* ---- Columns 37 ---- */
 
 .columns.columns37 > div {
   display: flex;
@@ -588,8 +577,6 @@
   border-radius: 24px;
   object-fit: cover;
 }
-
-/* ---- Columns 3 ---- */
 
 .columns.columns3 {
   padding: 48px 0;
@@ -678,8 +665,6 @@
   border-color: #1d3ecf;
   color: #1d3ecf;
 }
-
-/* ---- Columns 9 ---- */
 
 .columns.columns9 {
   background: #000;
@@ -840,8 +825,6 @@
   text-decoration: underline;
 }
 
-/* ---- Columns 12 ---- */
-
 .columns.columns12 > div {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -972,6 +955,7 @@
     grid-template-rows: none;
     gap: 1rem;
   }
+
   .columns.columns12 > div > div {
     grid-column: auto;
     grid-row: auto;
@@ -979,6 +963,7 @@
     min-height: 160px;
     padding: 1.1rem 1rem;
   }
+
   .columns.columns12 img,
   .columns.columns12 > div > div {
     border-radius: 12px;
@@ -991,8 +976,210 @@
     min-height: 100px;
     border-radius: 10px;
   }
+
   .columns.columns12 img,
   .columns.columns12 > div > div {
     border-radius: 10px;
+  }
+}
+
+
+.columns.columns31 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  background: #fff;
+  padding: 64px 0;
+}
+
+@media (width <= 900px) {
+  .columns.columns31 > div {
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    padding: 32px 0;
+  }
+}
+
+/* Image column */
+.columns.columns31 .columns-img-col {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.columns.columns31 .columns-img-col picture,
+.columns.columns31 .columns-img-col img {
+  width: 410px;
+  max-width: 100%;
+  border-radius: 28px;
+  display: block;
+  object-fit: cover;
+  height: auto;
+}
+
+@media (width <= 1200px) {
+  .columns.columns31 .columns-img-col picture,
+  .columns.columns31 .columns-img-col img {
+    width: 340px;
+    border-radius: 22px;
+  }
+}
+
+@media (width <= 900px) {
+  .columns.columns31 .columns-img-col picture,
+  .columns.columns31 .columns-img-col img {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+/* Text column */
+.columns.columns31 > div > div:not(.columns-img-col) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  max-width: 340px;
+  padding: 0 8px;
+  margin-top: 10px;     /* Shift text up to reduce distance from image top */
+}
+
+/* Label and pill row */
+.columns.columns31 > div > div:not(.columns-img-col) .label-pill-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 18px;
+  width: 100%;
+}
+
+.columns.columns31 > div > div:not(.columns-img-col) p:nth-child(1),
+.columns.columns31 > div > div:not(.columns-img-col) p:nth-child(2) {
+  margin-top: 0;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.columns.columns31 > div > div:not(.columns-img-col) p:nth-child(1) {
+  color: #b2b2b2;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 15px;
+  font-weight: 400;
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.columns.columns31 > div > div:not(.columns-img-col) p:nth-child(2) {
+  background: #ededed;
+  color: #222;
+  border-radius: 14px;
+  padding: 4px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+/* Use flex for the two row children (simulate .label-pill-row) */
+.columns.columns31 > div > div:not(.columns-img-col) {
+  /* ...existing... */
+}
+
+.columns.columns31 > div > div:not(.columns-img-col) p:nth-child(1),
+.columns.columns31 > div > div:not(.columns-img-col) p:nth-child(2) {
+  /* nothing extra here, handled above */
+}
+
+/* Headline */
+.columns.columns31 > div > div:not(.columns-img-col) h2 {
+  font-family: var(--heading-font-family);
+  font-size: 2.15rem;
+  line-height: 1.05;
+  font-weight: 500;
+  color: #222;
+  margin: 0 0 10px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  width: 100%;
+  max-width: 340px;
+}
+
+/* Meta (byline/date) inline arrangement, tighter spacing */
+.columns.columns31 > div > div:not(.columns-img-col) p:nth-child(n+4):nth-child(-n+8) {
+  display: inline;
+  color: #ababab;
+  font-size: 1rem;
+  margin: 0 4px 0 0;
+  font-weight: 400;
+  vertical-align: middle;
+  line-height: 1.4;
+}
+
+.columns.columns31 > div > div:not(.columns-img-col) p:nth-child(5),
+.columns.columns31 > div > div:not(.columns-img-col) p:nth-child(7) {
+  margin: 0 5px;
+  font-weight: bold;
+  color: #ababab;
+}
+
+.columns.columns31 > div > div:not(.columns-img-col) p:nth-child(4) {
+  margin-left: 0;
+}
+
+.columns.columns31 > div > div:not(.columns-img-col) p:nth-child(8) {
+  margin-right: 0;
+}
+
+/* Place label and pill on same row using flex on parent */
+.columns.columns31 > div > div:not(.columns-img-col) {
+  position: relative;
+}
+
+.columns.columns31 > div > div:not(.columns-img-col)::before {
+  content: "";
+  display: block;
+  height: 0;
+}
+
+.columns.columns31 > div > div:not(.columns-img-col) p:nth-child(1),
+.columns.columns31 > div > div:not(.columns-img-col) p:nth-child(2) {
+  position: relative;
+}
+
+@media (width >= 600px) {
+  .columns.columns31 > div > div:not(.columns-img-col) {
+    /* force label/pill to row using flex only for first two children */
+  }
+
+  .columns.columns31 > div > div:not(.columns-img-col) p:nth-child(1),
+  .columns.columns31 > div > div:not(.columns-img-col) p:nth-child(2) {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+@media (width <= 900px) {
+  .columns.columns31 > div > div:not(.columns-img-col) {
+    max-width: 100%;
+    padding: 0;
+    align-items: center;
+    margin-top: 0;
+  }
+
+  .columns.columns31 > div > div:not(.columns-img-col) h2 {
+    text-align: center;
+    font-size: 1.7rem;
+    max-width: 100%;
+  }
+
+  .columns.columns31 > div > div:not(.columns-img-col) p:nth-child(n+4):nth-child(-n+8) {
+    text-align: center;
+    display: inline;
   }
 }
