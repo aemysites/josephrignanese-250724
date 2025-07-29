@@ -1893,7 +1893,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: minmax(0, auto);
-  gap: 12px 28px; /* Increased vertical gap for better visual separation */
+  gap: 12px 28px;
   margin: 0;
   padding: 0;
 }
@@ -1958,5 +1958,138 @@
   .columns.columns18 > div {
     grid-template-columns: 1fr;
     gap: 8px 0;
+  }
+}
+
+
+.columns.columns23 > div > div {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  min-height: 600px;
+  background: #fff;
+}
+
+/* Vertically center the whole content block in the left column */
+.columns.columns23 > div > div > div:first-child {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 6vw 5vw 6vw 8vw;
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
+  height: 100%;
+  max-width: 550px;
+}
+
+/* Stack all items vertically and keep spacing tight */
+.columns.columns23 > div > div > div:first-child > * {
+  width: 100%;
+}
+
+/* Headline styling */
+.columns.columns23 > div > div > div:first-child > h2 {
+  margin: 0 0 1.2rem;
+  font-family: var(--heading-font-family);
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #222;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  text-align: left;
+  word-break: break-word;
+  max-width: 20ch;
+}
+
+/* Description paragraph directly under the headline */
+.columns.columns23 > div > div > div:first-child > p {
+  font-size: 1rem;
+  color: #5a5a5a;
+  line-height: 1.7;
+  margin: 0 0 2rem;
+  text-align: left;
+  word-break: break-word;
+  max-width: 32em;
+}
+
+/* Button container directly after description, not far right */
+.columns.columns23 .button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin: 0;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+}
+
+/* Button appearance */
+.columns.columns23 .button-container .button {
+  border: 2px solid #222;
+  border-radius: 999px;
+  background: #fff;
+  color: #222;
+  font-size: 1rem;
+  padding: 0.7em 2em;
+  margin: 0;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  box-shadow: none;
+  white-space: nowrap;
+  height: auto;
+  min-width: 0;
+}
+
+.columns.columns23 .button-container .button:hover,
+.columns.columns23 .button-container .button:focus {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+  text-decoration: none;
+}
+
+/* Right column: image fills */
+.columns.columns23 > div > div > .columns-img-col {
+  flex: 1 1 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  min-width: 0;
+  min-height: 600px;
+  padding: 0;
+}
+
+.columns.columns23 .columns-img-col picture,
+.columns.columns23 .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (width <= 900px) {
+  .columns.columns23 > div > div {
+    flex-direction: column;
+    min-height: unset;
+  }
+
+  .columns.columns23 > div > div > div:first-child,
+  .columns.columns23 > div > div > .columns-img-col {
+    padding: 6vw 4vw;
+    min-height: 300px;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .columns.columns23 .columns-img-col {
+    min-height: 250px;
+  }
+
+  .columns.columns23 .button-container {
+    justify-content: flex-start;
   }
 }
