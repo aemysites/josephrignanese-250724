@@ -2097,7 +2097,6 @@
   padding: 0;
 }
 
-/* --- 2x2 GRID STRUCTURE: Keep all content in the card --- */
 .columns.columns25 > div {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2110,7 +2109,6 @@
   position: relative;
 }
 
-/* Responsive: stack as single column */
 @media (width <= 900px) {
   .columns.columns25 > div {
     grid-template-columns: 1fr;
@@ -2120,9 +2118,6 @@
   }
 }
 
-/* --- GRID CELL ASSIGNMENT --- */
-
-/* Top left: Title */
 .columns.columns25 > div > div:first-child {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -2131,7 +2126,6 @@
   justify-content: flex-start;
 }
 
-/* Top right: Quote */
 .columns.columns25 > div > div:last-child {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
@@ -2141,7 +2135,6 @@
   align-items: flex-end;
 }
 
-/* Bottom left: Avatar, Name, Role */
 .columns.columns25 > div > div:first-child .block-bottom-row,
 .columns.columns25 > div > div:first-child > p.avatar-row {
   display: flex;
@@ -2151,7 +2144,6 @@
   margin-bottom: 0;
 }
 
-/* Bottom right: Logo */
 .columns.columns25 > div > div:last-child .block-bottom-row,
 .columns.columns25 > div > div:last-child > p.logo-row {
   display: flex;
@@ -2160,7 +2152,6 @@
   margin-top: 40px;
 }
 
-/* --- TITLE --- */
 .columns.columns25 > div > div:first-child > p:first-child {
   font-family: Syncopate, "Syncopate Fallback", sans-serif;
   font-size: 2.3rem;
@@ -2173,7 +2164,6 @@
   max-width: 480px;
 }
 
-/* --- QUOTE --- */
 .columns.columns25 > div > div:last-child > p:first-child {
   font-size: 1.06rem;
   line-height: 1.6;
@@ -2184,7 +2174,6 @@
   max-width: 430px;
 }
 
-/* --- DIVIDER --- */
 .columns.columns25 > div::after {
   content: "";
   display: block;
@@ -2203,7 +2192,6 @@
   }
 }
 
-/* --- AVATAR + NAME/ROLE --- */
 .columns.columns25 > div > div:first-child > p:nth-child(2) {
   display: flex;
   align-items: center;
@@ -2240,7 +2228,6 @@
   margin-bottom: 0;
 }
 
-/* --- LOGO (bottom right cell) --- */
 .columns.columns25 > div > div:last-child > p:last-child {
   display: flex;
   justify-content: flex-end;
@@ -2275,10 +2262,197 @@
   }
 }
 
-/* Remove any default block/row spacing that would separate the grid cells visually */
 .columns.columns25 > div > div {
   min-width: 0;
   overflow-wrap: anywhere;
   margin-bottom: 0;
   padding-bottom: 0;
+}
+
+
+.columns.columns26 {
+  background: #faf9f6;
+  padding: 72px 0 64px;
+
+  /* Add a little extra top padding to guarantee headline visibility */
+}
+
+.columns.columns26 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 28px;
+  padding: 0 32px;
+  box-sizing: border-box;
+  min-height: 580px;
+}
+
+@media (width <= 900px) {
+  .columns.columns26 > div {
+    flex-direction: column;
+    gap: 32px;
+    padding: 0 12px;
+    max-width: 100%;
+    min-height: 0;
+  }
+}
+
+/* Left column (text) */
+.columns.columns26 > div > div:first-child {
+  flex: 0 1 60%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+@media (width <= 900px) {
+  .columns.columns26 > div > div:first-child {
+    max-width: 100%;
+  }
+}
+
+/* Remove extra margin for very first element in text column for flush alignment */
+.columns.columns26 > div > div:first-child > div > *:first-child {
+  margin-top: 0;
+}
+
+/* Byline (first p) */
+.columns.columns26 > div > div:first-child > div > p:first-child {
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: #828282;
+  font-size: 12px;
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-family: var(--body-font-family);
+  font-weight: 500;
+}
+
+/* Headline (h2) */
+.columns.columns26 > div > div:first-child > div > h2 {
+  font-family: 'Montserrat Alternates', Syncopate, Futura, var(--heading-font-family), sans-serif;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: -1.5px;
+  line-height: 1.04;
+  color: #181818;
+  margin: 0 0 36px;
+  word-break: break-word;
+  white-space: pre-line;
+}
+
+@media (width <= 900px) {
+  .columns.columns26 > div > div:first-child > div > h2 {
+    font-size: 36px;
+    margin-bottom: 22px;
+  }
+}
+
+/* Main body paragraph */
+.columns.columns26 > div > div:first-child > div > p:nth-child(3) {
+  color: #232323;
+  font-size: 18px;
+  line-height: 1.7;
+  margin: 0 0 18px;
+  max-width: 480px;
+}
+
+/* Muted small paragraph */
+.columns.columns26 > div > div:first-child > div > p:nth-child(4) {
+  color: #8c8c8c;
+  font-size: 12px;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+/* Button styles (more specific override) */
+.columns.columns26 .button-container {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.columns.columns26 .button-container .button {
+  background: #fff;
+  color: #222;
+  border: 1px solid #222;
+  border-radius: 24px;
+  font-size: 14px;
+  padding: 6px 24px;
+  margin: 0;
+  font-weight: 500;
+  box-shadow: none;
+  transition: background 0.18s, color 0.18s;
+  line-height: 1.25;
+}
+
+.columns.columns26 .button-container .button:hover,
+.columns.columns26 .button-container .button:focus {
+  background: #222;
+  color: #fff;
+}
+
+/* Right column (image) */
+.columns.columns26 > div > .columns-img-col {
+  flex: 0 1 40%;
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.columns.columns26 > div > .columns-img-col picture,
+.columns.columns26 > div > .columns-img-col img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 440px;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px 0 rgb(0 0 0 / 6%);
+  object-fit: cover;
+  margin: 0;
+  align-self: stretch;
+}
+
+/* Ensure picture fills parent height */
+.columns.columns26 > div > .columns-img-col picture {
+  height: 100%;
+  display: flex;
+}
+
+/* Remove accidental extra margin from image */
+.columns.columns26 > div > .columns-img-col img {
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (width <= 1100px) {
+  .columns.columns26 > div > .columns-img-col picture,
+  .columns.columns26 > div > .columns-img-col img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (width <= 900px) {
+  .columns.columns26 > div > .columns-img-col {
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .columns.columns26 > div > .columns-img-col picture,
+  .columns.columns26 > div > .columns-img-col img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
 }
