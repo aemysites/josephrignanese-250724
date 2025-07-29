@@ -1971,7 +1971,6 @@
   background: #fff;
 }
 
-/* Vertically center the whole content block in the left column */
 .columns.columns23 > div > div > div:first-child {
   flex: 1 1 0;
   display: flex;
@@ -1986,12 +1985,10 @@
   max-width: 550px;
 }
 
-/* Stack all items vertically and keep spacing tight */
 .columns.columns23 > div > div > div:first-child > * {
   width: 100%;
 }
 
-/* Headline styling */
 .columns.columns23 > div > div > div:first-child > h2 {
   margin: 0 0 1.2rem;
   font-family: var(--heading-font-family);
@@ -2005,7 +2002,6 @@
   max-width: 20ch;
 }
 
-/* Description paragraph directly under the headline */
 .columns.columns23 > div > div > div:first-child > p {
   font-size: 1rem;
   color: #5a5a5a;
@@ -2016,7 +2012,6 @@
   max-width: 32em;
 }
 
-/* Button container directly after description, not far right */
 .columns.columns23 .button-container {
   display: flex;
   flex-direction: row;
@@ -2027,7 +2022,6 @@
   width: auto;
 }
 
-/* Button appearance */
 .columns.columns23 .button-container .button {
   border: 2px solid #222;
   border-radius: 999px;
@@ -2051,7 +2045,6 @@
   text-decoration: none;
 }
 
-/* Right column: image fills */
 .columns.columns23 > div > div > .columns-img-col {
   flex: 1 1 0;
   position: relative;
@@ -2092,4 +2085,200 @@
   .columns.columns23 .button-container {
     justify-content: flex-start;
   }
+}
+
+
+.columns.columns25 {
+  background: #F8F9F6;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 #0001;
+  max-width: 1280px;
+  margin: 48px auto;
+  padding: 0;
+}
+
+/* --- 2x2 GRID STRUCTURE: Keep all content in the card --- */
+.columns.columns25 > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0 60px;
+  padding: 56px 48px 36px;
+  background: #F8F9F6;
+  border-radius: 18px;
+  align-items: start;
+  position: relative;
+}
+
+/* Responsive: stack as single column */
+@media (width <= 900px) {
+  .columns.columns25 > div {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    padding: 32px 12px;
+    gap: 32px 0;
+  }
+}
+
+/* --- GRID CELL ASSIGNMENT --- */
+
+/* Top left: Title */
+.columns.columns25 > div > div:first-child {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Top right: Quote */
+.columns.columns25 > div > div:last-child {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+/* Bottom left: Avatar, Name, Role */
+.columns.columns25 > div > div:first-child .block-bottom-row,
+.columns.columns25 > div > div:first-child > p.avatar-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+/* Bottom right: Logo */
+.columns.columns25 > div > div:last-child .block-bottom-row,
+.columns.columns25 > div > div:last-child > p.logo-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 40px;
+}
+
+/* --- TITLE --- */
+.columns.columns25 > div > div:first-child > p:first-child {
+  font-family: Syncopate, "Syncopate Fallback", sans-serif;
+  font-size: 2.3rem;
+  text-transform: uppercase;
+  color: #23251F;
+  letter-spacing: 0.035em;
+  font-weight: 400;
+  margin: 0 0 46px;
+  line-height: 1.13;
+  max-width: 480px;
+}
+
+/* --- QUOTE --- */
+.columns.columns25 > div > div:last-child > p:first-child {
+  font-size: 1.06rem;
+  line-height: 1.6;
+  color: #23251F;
+  opacity: 0.94;
+  text-align: left;
+  margin: 0;
+  max-width: 430px;
+}
+
+/* --- DIVIDER --- */
+.columns.columns25 > div::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 53%;
+  height: 1px;
+  background: #E9EBE6;
+  z-index: 1;
+}
+
+@media (width <= 900px) {
+  .columns.columns25 > div::after {
+    display: none;
+  }
+}
+
+/* --- AVATAR + NAME/ROLE --- */
+.columns.columns25 > div > div:first-child > p:nth-child(2) {
+  display: flex;
+  align-items: center;
+  margin: 40px 0 0;
+  padding: 0;
+}
+
+.columns.columns25 > div > div:first-child > p:nth-child(2) img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 14px;
+}
+
+.columns.columns25 > div > div:first-child > p:nth-child(3),
+.columns.columns25 > div > div:first-child > p:nth-child(4) {
+  margin: 0 0 0 52px;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.columns.columns25 > div > div:first-child > p:nth-child(3) {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #23251F;
+  margin-bottom: 2px;
+}
+
+.columns.columns25 > div > div:first-child > p:nth-child(4) {
+  font-size: 0.98rem;
+  color: #23251F;
+  opacity: 0.7;
+  margin-bottom: 0;
+}
+
+/* --- LOGO (bottom right cell) --- */
+.columns.columns25 > div > div:last-child > p:last-child {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 40px 0 0;
+  z-index: 2;
+}
+
+.columns.columns25 > div > div:last-child > p:last-child img {
+  height: 26px;
+  width: auto;
+  display: block;
+}
+
+@media (width <= 900px) {
+  .columns.columns25 > div > div:last-child {
+    align-items: flex-start;
+  }
+
+  .columns.columns25 > div > div:last-child > p:last-child {
+    justify-content: flex-start;
+    margin: 28px 0 0;
+  }
+
+  .columns.columns25 > div > div:first-child > p:nth-child(2) {
+    margin: 28px 0 0;
+  }
+
+  .columns.columns25 > div > div:first-child > p:nth-child(3),
+  .columns.columns25 > div > div:first-child > p:nth-child(4) {
+    margin-left: 44px;
+  }
+}
+
+/* Remove any default block/row spacing that would separate the grid cells visually */
+.columns.columns25 > div > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
