@@ -2435,7 +2435,6 @@
 
 
 .columns.columns28 {
-  /* Make the block tall and immersive on desktop, matching the image block height */
   min-height: 420px;
   height: 42vw;
   max-height: 700px;
@@ -2490,4 +2489,140 @@
   .columns.columns28 .columns-img-col {
     height: auto;
   }
+}
+
+
+.columns.columns29 {
+  background: #fff;
+  position: relative;
+}
+
+/* Hide images in this block */
+.columns.columns29 img {
+  display: none;
+}
+
+/* Top-level layout: two columns, content vertically centered */
+.columns.columns29 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 80vh;
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  padding: 0 0 0 0;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (max-width: 900px) {
+  .columns.columns29 > div {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: unset;
+    padding: 0 0 32px 0;
+  }
+}
+
+/* --- Sidebar: Name + Tags as a unified vertical column --- */
+.columns.columns29 .columns29-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 200px;
+  max-width: 240px;
+  flex: 0 0 220px;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Simulate a sidebar group by stacking nth-child(1) and (2) using manual margin */
+.columns.columns29 > div > div:nth-child(1) {
+  margin-bottom: 48px;
+}
+.columns.columns29 > div > div:nth-child(1) p {
+  color: #757575;
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0 0 48px 0; /* Large gap below name */
+  font-family: var(--body-font-family);
+  line-height: 1.5;
+}
+
+.columns.columns29 > div > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.columns.columns29 > div > div:nth-child(2) p {
+  display: inline-block;
+  background: #eeeeee;
+  color: #757575;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 16px;
+  padding: 4px 18px 3px 18px;
+  font-family: var(--body-font-family);
+  font-weight: 500;
+  margin: 0;
+}
+
+/* --- Main Content Column --- */
+.columns.columns29 > div > div:nth-child(3) {
+  flex: 1 1 0;
+  padding-left: 60px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .columns.columns29 > div > div:nth-child(1),
+  .columns.columns29 > div > div:nth-child(2) {
+    margin-bottom: 0;
+    min-width: unset;
+    max-width: unset;
+    flex: unset;
+  }
+  .columns.columns29 > div > div:nth-child(3) {
+    padding-left: 0;
+    margin-top: 32px;
+    align-self: flex-start;
+  }
+}
+
+/* Headline styles */
+.columns.columns29 > div > div:nth-child(3) h2 {
+  font-family: var(--heading-font-family);
+  font-size: 68px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.05;
+  color: #000;
+  margin: 0 0 32px 0;
+  text-transform: uppercase;
+  word-break: break-word;
+}
+
+/* Paragraph styles */
+.columns.columns29 > div > div:nth-child(3) p {
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  color: #222;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+}
+
+/* Remove extra padding/margins from column wrappers */
+.columns.columns29 > div > div {
+  box-sizing: border-box;
+  padding: 0;
 }
